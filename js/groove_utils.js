@@ -1037,7 +1037,8 @@ function GrooveUtils() {
 
 	root.getUrlStringFromGrooveData = function (myGrooveData, url_destination) {
 
-		var fullURL = window.location.protocol + "//" + window.location.host + window.location.pathname;
+		var originURL = window.location.protocol + "//" + window.location.host;
+		var fullURL = originURL + window.location.pathname;
 
 		if(!url_destination) {
 			// then assume it is the groove writer display.  Do nothing
@@ -1046,12 +1047,12 @@ function GrooveUtils() {
 			if(fullURL.includes('index.html'))
 				fullURL = fullURL.replace('index.html', 'GrooveEmbed.html');
 			else if(fullURL.includes('/gscribe'))
-				fullURL = fullURL.replace('/gscribe', '/groove/GrooveEmbed.html');
+				fullURL = fullURL.replace('/gscribe', '/GrooveScribe/GrooveEmbed.html');
 			else
 				fullURL += 'GrooveEmbed.html';
 		} else if(url_destination == "fullGrooveScribe") {
 			// asking for the full GrooveScribe link
-			fullURL = 'https://www.mikeslessons.com/gscribe';
+			fullURL = originURL + '/GrooveScribe';
 		}
 
 		fullURL += '?';
