@@ -4014,8 +4014,6 @@ function GrooveWriter() {
 
 			// open the popup with full url and try to load short in the background
 			root.fillInFullURLInFullURLPopup();
-			// default is to use shortened url
-			fillInShortenedURLInFullURLPopup(get_FullURLForPage(), 'fullURLPopupTextField');
 	};
 
 	root.copyShareURLToClipboard = function() {
@@ -4036,7 +4034,7 @@ function GrooveWriter() {
 	};
 
 	function fillInShortenedURLInFullURLPopup(fullURL, cssIdOfTextFieldToFill) {
-		document.getElementById("embedCodeCheckbox").checked = false;  // uncheck embedCodeCheckbox, because it is not compatible
+		document.getElementById("embedCodeCheckbox").checked = true;  // uncheck embedCodeCheckbox, because it is not compatible
 
 		var params = {
 			"dynamicLinkInfo": {
